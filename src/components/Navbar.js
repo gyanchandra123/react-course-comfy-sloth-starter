@@ -30,9 +30,9 @@ const Nav = () => {
               </li>
             );
           })}
+          
         </ul>
-
-        <CartButtons/>
+        <CartButtons/>       
       </div>
     </NavContainer>
   );
