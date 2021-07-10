@@ -24,7 +24,10 @@ const initialState = {
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+  
+  const [state, dispatch] = useReducer(reducer, initialState); // useReducer
+
 
   const openSidebar = () => {
     dispatch({ type: SIDEBAR_OPEN });
