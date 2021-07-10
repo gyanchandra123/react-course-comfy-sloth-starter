@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import Product from "./Product";
 
 const FeaturedProducts = () => {
+  
   const {
     products_loading: loading,
     products_error: error,
@@ -23,7 +24,7 @@ const FeaturedProducts = () => {
 
   return (
     <Wrapper className="section">
-      
+
       <div className="title">
         <h2>featured products</h2>
         <div className="underline"></div>

@@ -27,6 +27,7 @@ const initialState = {
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
+  
   const [state, dispatch] = useReducer(reducer, initialState); // useReducer
 
   const openSidebar = () => {
@@ -63,7 +64,7 @@ export const ProductsProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
+    <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar,fetchSingleProduct  }}>
       {children}
     </ProductsContext.Provider>
   );
