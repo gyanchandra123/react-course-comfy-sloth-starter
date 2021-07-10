@@ -25,7 +25,7 @@ const SingleProductPage = () => {
     fetchSingleProduct,
   } = useProductsContext();
 
-  const {
+  const { // destructuring the access product at line24
     name,
     price,
     description,
@@ -67,6 +67,7 @@ const SingleProductPage = () => {
         <div className='product-center'>
 
           <ProductImages images={images} />
+          
           <section className='content'>
             <h2>{name}</h2>
             <Stars />
