@@ -64,6 +64,10 @@ export const FilterProvider = ({ children }) => {
       // this is required as there is no value attribute in case of a button.
     }
 
+    if (name === 'color') {
+      value = e.target.dataset.color
+    }
+
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
   const clearFilters = () => {}
