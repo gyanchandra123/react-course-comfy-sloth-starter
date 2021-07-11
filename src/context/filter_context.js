@@ -66,9 +66,9 @@ export const FilterProvider = ({ children }) => {
   }, [products])
 
   useEffect(() => {  
+    dispatch({type:FILTER_PRODUCTS})//use for filtering
     dispatch({ type: SORT_PRODUCTS })//use for sorting
-    dispatch({type:UPDATE_FILTERS})//use for filtering
-  }, [products, state.sort,state.filters])
+      }, [products, state.sort,state.filters])
 
   return (
     <FilterContext.Provider value={{...state, setGridView, setListView,updateSort, updateFilters,
