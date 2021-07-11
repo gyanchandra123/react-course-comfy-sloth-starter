@@ -21,11 +21,11 @@ const Filters = () => {
     all_products,
   } = useFilterContext();
 
-  const categories = getUniqueValues(all_products, 'category')
-  const companies = getUniqueValues(all_products, 'company')
-  const colors = getUniqueValues(all_products, 'colors')
+  const categories = getUniqueValues(all_products, "category");
+  const companies = getUniqueValues(all_products, "company");
+  const colors = getUniqueValues(all_products, "colors");
 
-  console.log(colors)
+  console.log(colors);
 
   return (
     <Wrapper>
@@ -35,7 +35,7 @@ const Filters = () => {
           <div className="form-control">
             <input
               type="text"
-              name="text"  // this name attribute value must be match with the line 21 in filter_context.js
+              name="text" // this name attribute value must be match with the line 21 in filter_context.js
               placeholder="search"
               className="search-input"
               value={text}
@@ -43,6 +43,29 @@ const Filters = () => {
             />
           </div>
           {/* end search input */}
+
+          {/* categories */}
+          <div className="form-control">
+            <h5>category</h5>
+            <div>
+              {categories.map((c, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={updateFilters}
+                    type="button"
+                    name="category"
+                    className={`${
+                      category === c.toLowerCase() ? "active" : null
+                    }`}
+                  >
+                    {c}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {/* end of categories */}
         </form>
       </div>
     </Wrapper>

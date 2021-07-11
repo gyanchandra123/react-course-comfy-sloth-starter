@@ -57,6 +57,13 @@ export const FilterProvider = ({ children }) => {
     // this [name]: represents the 'text' in the filter{} inside the filter_context.js
     //because this 'text'in filter{} was assigned to the name attribute in the form. in filter.js
     let value = e.target.value
+
+    if(name==='category'){   
+      value=e.target.textContent
+      // for accessing the content of each of the button
+      // this is required as there is no value attribute in case of a button.
+    }
+
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
   const clearFilters = () => {}
