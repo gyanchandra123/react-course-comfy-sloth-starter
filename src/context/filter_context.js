@@ -52,16 +52,27 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_SORT, payload: value })
   }
 
+  const updateFilters = (e) => {
+    let name = e.target.name 
+    // this [name]: represents the 'text' in the filter{} inside the filter_context.js
+    //because this 'text'in filter{} was assigned to the name attribute in the form. in filter.js
+    let value = e.target.value
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
+  }
+  const clearFilters = () => {}
+
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products })
   }, [products])
 
-  useEffect(() => {  //use for sorting
-    dispatch({ type: SORT_PRODUCTS })
-  }, [products, state.sort])
+  useEffect(() => {  
+    dispatch({ type: SORT_PRODUCTS })//use for sorting
+    dispatch({type:UPDATE_FILTERS})//use for filtering
+  }, [products, state.sort,state.filters])
 
   return (
-    <FilterContext.Provider value={{...state, setGridView, setListView,updateSort}}>
+    <FilterContext.Provider value={{...state, setGridView, setListView,updateSort, updateFilters,
+      clearFilters,}}>
       {children}
     </FilterContext.Provider>
   )
